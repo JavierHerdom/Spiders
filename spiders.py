@@ -14,11 +14,6 @@ MODEL_FILE = "spider_mnist.h5py"
 def import_and_predict(image_data, model):
         size = (300,300)    
         image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
-        # image = np.asarray(image)
-        #img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        #img_resize = (cv2.resize(img, dsize=(300, 300),    interpolation=cv2.INTER_CUBIC))/255.
-        #img_reshape = img_resize[np.newaxis,...]
-
         img_resized = image.resize((300,300))
         img_array = keras.preprocessing.image.img_to_array(img_resized)
         image_without_alpha = img_array[:,:,:3]
